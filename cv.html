@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sajad Saghireh — Official Technical CV</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2310b981'/%3E%3Cstop offset='100%25' stop-color='%23047857'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M32 4L8 14v18c0 16.5 10.2 31.6 24 36 13.8-4.4 24-19.5 24-36V14L32 4z' fill='url(%23g)'/%3E%3Cpath d='M26 34l-6-6-4 4 10 10 20-20-4-4-16 16z' fill='%23ffffff'/%3E%3C/svg%3E">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #ffffff;
+    color: #1e293b;
+    line-height: 1.38;
+    font-size: 11px;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .page {
+    width: 210mm;
+    max-height: 296mm;
+    margin: 0 auto;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    padding: 20px 28px 16px 28px;
+    border-bottom: 4px solid #10b981;
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 28px;
+  }
+  .header-left {
+    flex: 1;
+    min-width: 0;
+  }
+  .brand-row {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+  .shield-icon {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 6px rgba(16, 185, 129, 0.35));
+  }
+  .name {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    color: #ffffff;
+  }
+  .title {
+    font-size: 11.8px;
+    font-weight: 600;
+    color: #34d399;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+  .badge-async {
+    flex-shrink: 0;
+    background: rgba(16, 185, 129, 0.14);
+    border: 1px solid #10b981;
+    color: #6ee7b7;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 7px;
+    text-align: right;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+  .contact-bar {
+    display: flex;
+    gap: 22px;
+    margin-top: 12px;
+    padding-top: 9px;
+    border-top: 1px solid rgba(255,255,255,0.14);
+    font-size: 11px;
+  }
+  .contact-item {
+    color: #e2e8f0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+  }
+  .contact-item a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .contact-label {
+    color: #94a3b8;
+    font-weight: 600;
+  }
+
+  /* Main Content */
+  .content {
+    padding: 14px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .section-title {
+    font-size: 11.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: #0f172a;
+    border-left: 4px solid #10b981;
+    padding-left: 8px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+  }
+  .summary-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    padding: 9px 12px;
+    color: #334155;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+  .summary-box strong {
+    color: #0f172a;
+  }
+
+  /* Skills Grid */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .skill-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    padding: 8px 11px;
+  }
+  .skill-card.full-width {
+    grid-column: span 2;
+  }
+  .skill-cat {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 11px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .dot {
+    width: 6px;
+    height: 6px;
+    background: #10b981;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .tag {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #1e293b;
+    padding: 2px 6.5px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .tag.highlight {
+    background: #ecfdf5;
+    border-color: #6ee7b7;
+    color: #065f46;
+  }
+
+  /* Projects */
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .project-card {
+    border: 1px solid #e2e8f0;
+    border-left: 3.5px solid #0f172a;
+    border-radius: 7px;
+    padding: 8px 12px;
+    background: #ffffff;
+  }
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .project-name {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .project-links {
+    display: flex;
+    gap: 6px;
+  }
+  .btn-link {
+    background: #0f172a;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 2.5px 8px;
+    border-radius: 4px;
+    font-size: 9.5px;
+    font-weight: 600;
+  }
+  .btn-link.video {
+    background: #059669;
+    color: #ffffff;
+  }
+  .project-card ul {
+    padding-left: 15px;
+    color: #334155;
+    font-size: 10.5px;
+  }
+  .project-card li {
+    margin-bottom: 2px;
+  }
+  .impact {
+    color: #065f46;
+    font-weight: 700;
+  }
+
+  /* Experience & Education */
+  .exp-box {
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    padding: 8px 12px;
+    background: #f8fafc;
+  }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 11.5px;
+    margin-bottom: 3px;
+  }
+  .exp-date {
+    color: #059669;
+    font-size: 10.5px;
+    font-weight: 700;
+  }
+  .exp-box ul {
+    padding-left: 15px;
+    color: #334155;
+    font-size: 10.5px;
+  }
+  .exp-box li {
+    margin-bottom: 2px;
+  }
+  .edu-box {
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    padding: 7px 12px;
+    background: #f8fafc;
+    color: #334155;
+    font-size: 10.5px;
+    font-weight: 500;
+  }
+  .edu-box strong {
+    color: #0f172a;
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header-top">
+        <div class="header-left">
+          <div class="brand-row">
+            <svg class="shield-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+              <defs>
+                <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#10b981"/>
+                  <stop offset="100%" stop-color="#047857"/>
+                </linearGradient>
+              </defs>
+              <path d="M32 4L8 14v18c0 16.5 10.2 31.6 24 36 13.8-4.4 24-19.5 24-36V14L32 4z" fill="url(#emeraldGrad)" stroke="#34d399" stroke-width="2"/>
+              <path d="M26 34l-6-6-4 4 10 10 20-20-4-4-16 16z" fill="#ffffff"/>
+            </svg>
+            <div class="name">Sajad Saghireh</div>
+          </div>
+          <div class="title">Python Developer &bull; Web Scraping (Playwright) &bull; Telegram Bots &amp; n8n AI Automation Engineer</div>
+        </div>
+        <div class="badge-async">
+          Asynchronous Remote Delivery<br>100% Written &bull; Fast Turnaround
+        </div>
+      </div>
+      <div class="contact-bar">
+        <div class="contact-item">
+          <span class="contact-label">Email:</span>
+          <a href="mailto:sjadsghyrh9@gmail.com">sjadsghyrh9@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">GitHub Portfolio:</span>
+          <a href="https://github.com/SAGHIREH">https://github.com/SAGHIREH</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Live System Video:</span>
+          <a href="https://drive.google.com/file/d/1GlhjwtKOJ6dV6y-em7YrQvU7YBSUBiqC/view?usp=sharing" target="_blank">Watch 2-Minute Video Walkthrough</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+      <!-- EXECUTIVE SUMMARY -->
+      <div>
+        <div class="section-title">Executive Summary</div>
+        <div class="summary-box">
+          Results-driven <strong>Python Developer</strong> and <strong>Workflow Automation Engineer</strong> specializing in end-to-end <strong>n8n pipelines</strong>, high-reliability <strong>Web Scraping (Playwright / BeautifulSoup / Scrapy)</strong>, custom <strong>Telegram Bots</strong>, <strong>PostgreSQL/SQL</strong> databases, and <strong>LLM AI integrations</strong>. Proven track record of building autonomous backend systems that eliminate manual data entry, automate lead and CRM operations, and deliver clean, structured data 24/7.
+        </div>
+      </div>
+
+      <!-- CORE TECHNICAL SKILLS -->
+      <div>
+        <div class="section-title">Core Technical Skills</div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-cat"><span class="dot"></span> Python &amp; Backend Engineering</div>
+            <div class="tags">
+              <span class="tag highlight">Python 3</span>
+              <span class="tag highlight">FastAPI</span>
+              <span class="tag">RESTful APIs</span>
+              <span class="tag">Asyncio</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">JSON / CSV / XML Data Processing</span>
+              <span class="tag">Automated Scripting</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-cat"><span class="dot"></span> Web Scraping &amp; Browser Automation</div>
+            <div class="tags">
+              <span class="tag highlight">Playwright</span>
+              <span class="tag highlight">BeautifulSoup4</span>
+              <span class="tag highlight">Scrapy</span>
+              <span class="tag">Selenium</span>
+              <span class="tag">Dynamic JS Rendering</span>
+              <span class="tag">Anti-Bot / Proxy Rotation</span>
+              <span class="tag">Data Extraction &amp; Cleaning</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-cat"><span class="dot"></span> AI &amp; Workflow Automation</div>
+            <div class="tags">
+              <span class="tag highlight">n8n Architecture</span>
+              <span class="tag highlight">JS &amp; Python Code Nodes</span>
+              <span class="tag highlight">OpenAI / Claude / LLM APIs</span>
+              <span class="tag">AI Agents</span>
+              <span class="tag">Make.com</span>
+              <span class="tag">Webhook Orchestration</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-cat"><span class="dot"></span> Telegram Bots &amp; Messaging Systems</div>
+            <div class="tags">
+              <span class="tag highlight">Telegram Bot API</span>
+              <span class="tag highlight">Aiogram</span>
+              <span class="tag">Telethon</span>
+              <span class="tag">Automated Alert Systems</span>
+              <span class="tag">Interactive Menus</span>
+              <span class="tag">Payment &amp; CRM Bot Integrations</span>
+            </div>
+          </div>
+
+          <div class="skill-card full-width">
+            <div class="skill-cat"><span class="dot"></span> Databases &amp; Infrastructure</div>
+            <div class="tags">
+              <span class="tag highlight">PostgreSQL</span>
+              <span class="tag highlight">SQL</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">Database Schema Design</span>
+              <span class="tag">Deduplication &amp; Data Hygiene</span>
+              <span class="tag">Git / GitHub</span>
+              <span class="tag">Linux CLI &amp; Cron Jobs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED ENGINEERING PROJECTS -->
+      <div>
+        <div class="section-title">Featured Engineering Projects</div>
+        <div class="projects-list">
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-name">1. Autonomous B2B Revenue, Data Enrichment &amp; AI Outreach Engine (Python + n8n + PostgreSQL)</div>
+              <div class="project-links">
+                <a class="btn-link video" href="https://drive.google.com/file/d/1GlhjwtKOJ6dV6y-em7YrQvU7YBSUBiqC/view?usp=sharing" target="_blank">&#9654; Watch the 2-minute video walkthrough here</a>
+                <a class="btn-link" href="https://github.com/SAGHIREH" target="_blank">GitHub: github.com/SAGHIREH</a>
+              </div>
+            </div>
+            <ul>
+              <li>Engineered a production-grade pipeline combining <strong>n8n</strong>, custom code nodes, <strong>LLM agents</strong>, and a <strong>PostgreSQL</strong> database to automatically ingest target websites, scrape and clean content, score leads with AI, and generate hyper-personalized outputs with full error recovery and deduplication.</li>
+              <li><span class="impact">Business Impact:</span> Replaces 15+ hours/week of manual research and data entry with a 100% autonomous 24/7 system.</li>
+            </ul>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-name">2. High-Reliability Web Scraping &amp; Automated Data Extraction Suite (Python + Playwright + SQL)</div>
+              <div class="project-links">
+                <a class="btn-link" href="https://github.com/SAGHIREH" target="_blank">GitHub: github.com/SAGHIREH</a>
+              </div>
+            </div>
+            <ul>
+              <li>Built resilient <strong>Python and Playwright</strong> scrapers capable of handling dynamic JavaScript-heavy websites, pagination, authentication, and rate-limiting, exporting normalized datasets directly into <strong>SQL databases</strong>, Google Sheets, or REST webhooks.</li>
+              <li><span class="impact">Business Impact:</span> Delivers 100% accurate, real-time market, pricing, and directory data without human intervention.</li>
+            </ul>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-name">3. Custom Asynchronous Telegram Bot &amp; Real-Time Notification System (Python + Telegram API + Webhooks)</div>
+              <div class="project-links">
+                <a class="btn-link" href="https://github.com/SAGHIREH" target="_blank">GitHub: github.com/SAGHIREH</a>
+              </div>
+            </div>
+            <ul>
+              <li>Developed automated <strong>Telegram bots</strong> integrated with backend APIs and databases to process user commands, automate customer workflows, trigger instant operational alerts, and sync data across business tools in real time.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROFESSIONAL EXPERIENCE -->
+      <div>
+        <div class="section-title">Professional Experience</div>
+        <div class="exp-box">
+          <div class="exp-header">
+            <span>Independent Python, Web Scraping &amp; Automation Engineer (Remote)</span>
+            <span class="exp-date">Present</span>
+          </div>
+          <ul>
+            <li>Designing, coding, and deploying custom <strong>Python scripts</strong>, <strong>Playwright web scrapers</strong>, <strong>Telegram bots</strong>, and <strong>n8n + AI workflows</strong> for international B2B clients.</li>
+            <li>Automating complex data pipelines, CRM synchronization (HubSpot, Google Workspace, Custom APIs), database management (<strong>PostgreSQL/SQL</strong>), and automated reporting systems via fast, 100% written asynchronous collaboration.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- EDUCATION & SPECIALIZATION -->
+      <div>
+        <div class="section-title">Education &amp; Specialization</div>
+        <div class="edu-box">
+          &bull; <strong>Specialized Engineering Focus:</strong> Python Backend Development, Automated Data Extraction (Playwright), SQL Databases &amp; AI Workflow Systems (n8n)
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
